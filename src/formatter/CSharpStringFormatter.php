@@ -24,7 +24,7 @@ final class CSharpStringFormatter implements StringFormatterInterface
             if (ctype_digit($item)){
                 $search = $matches[0][$key] ?? '';
                 $replace = $values[$item] ?? '';
-                $ret = str_replace($search, $replace, $ret);
+                $ret = str_replace($search, (string)$replace, $ret);
             }
             else if (preg_match('/([0-9]+):D([0-9]*)/i',$item, $matches_item)){
                 // integer
@@ -40,7 +40,7 @@ final class CSharpStringFormatter implements StringFormatterInterface
             else if (preg_match('/([0-9]+):F([0-9]*)/i',$item, $matches_item)){
                 // float
                 $index = $matches_item[1];
-                $scale = !empty($matches_item[2]) ? intval($matches_item[2]) : 2;
+                $scale = !empty($matches_item[2]) ? (int)($matches_item[2]) : 2;
                 $search = $matches[0][$key] ?? '';
                 $replace = $values[$index] ?? '';
                 if ($scale > 0){
@@ -52,7 +52,7 @@ final class CSharpStringFormatter implements StringFormatterInterface
                 // exponent
                 $index = $matches_item[1];
                 $e = $matches_item[2];
-                $exponent = !empty($matches_item[3]) ? intval($matches_item[3]) : 6;
+                $exponent = !empty($matches_item[3]) ? (int)($matches_item[3]) : 6;
                 $search = $matches[0][$key] ?? '';
                 $replace = $values[$index] ?? '';
                 if ($exponent > 0){
@@ -63,7 +63,7 @@ final class CSharpStringFormatter implements StringFormatterInterface
             else if (preg_match('/([0-9]+):N([0-9]*)/i',$item, $matches_item)){
                 // number
                 $index = $matches_item[1];
-                $scale = !empty($matches_item[2]) ? intval($matches_item[2]) : 2;
+                $scale = !empty($matches_item[2]) ? (int)($matches_item[2]) : 2;
                 $search = $matches[0][$key] ?? '';
                 $replace = $values[$index] ?? 0;
                 if ($scale > 0){
@@ -74,9 +74,9 @@ final class CSharpStringFormatter implements StringFormatterInterface
             else if (preg_match('/([0-9]+):P([0-9]*)/i',$item, $matches_item)){
                 // percentage
                 $index = $matches_item[1];
-                $scale = !empty($matches_item[2]) ? intval($matches_item[2]) : 2;
+                $scale = !empty($matches_item[2]) ? (int)($matches_item[2]) : 2;
                 $search = $matches[0][$key] ?? '';
-                $replace = !empty($values[$index]) ? floatval($values[$index]) * 100.0 : 0;
+                $replace = !empty($values[$index]) ? (float)($values[$index]) * 100.0 : 0;
                 if ($scale > 0){
                     $replace = sprintf('%.0' . $scale . 'F', $replace);
                 }
@@ -87,7 +87,7 @@ final class CSharpStringFormatter implements StringFormatterInterface
                 // hexadecimal number
                 $index = $matches_item[1];
                 $x = $matches_item[2];
-                $digits = !empty($matches_item[3]) ? intval($matches_item[3]) : 0;
+                $digits = !empty($matches_item[3]) ? (int)($matches_item[3]) : 0;
                 $search = $matches[0][$key] ?? '';
                 $replace = $values[$index] ?? '';
                 if ($digits > 0){
