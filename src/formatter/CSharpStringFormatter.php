@@ -35,7 +35,7 @@ final class CSharpStringFormatter implements StringFormatterInterface
                 if ($digits > 0){
                     $replace = sprintf('%0' . $digits . 'd', $replace);
                 }
-                $ret = str_replace($search, $replace, $ret);
+                $ret = str_replace($search, (string)$replace, $ret);
             }
             else if (preg_match('/([0-9]+):F([0-9]*)/i',$item, $matches_item)){
                 // float
@@ -46,7 +46,7 @@ final class CSharpStringFormatter implements StringFormatterInterface
                 if ($scale > 0){
                     $replace = sprintf('%.0' . $scale . 'F', $replace);
                 }
-                $ret = str_replace($search, $replace, $ret);
+                $ret = str_replace($search, (string)$replace, $ret);
             }
             else if (preg_match('/([0-9]+):([E|e])([0-9]*)/',$item, $matches_item)){
                 // exponent
@@ -58,7 +58,7 @@ final class CSharpStringFormatter implements StringFormatterInterface
                 if ($exponent > 0){
                     $replace = sprintf('%.' . $exponent . $e, $replace);
                 }
-                $ret = str_replace($search, $replace, $ret);
+                $ret = str_replace($search, (string)$replace, $ret);
             }
             else if (preg_match('/([0-9]+):N([0-9]*)/i',$item, $matches_item)){
                 // number
@@ -69,7 +69,7 @@ final class CSharpStringFormatter implements StringFormatterInterface
                 if ($scale > 0){
                     $replace = number_format($replace, $scale);
                 }
-                $ret = str_replace($search, $replace, $ret);
+                $ret = str_replace($search, (string)$replace, $ret);
             }
             else if (preg_match('/([0-9]+):P([0-9]*)/i',$item, $matches_item)){
                 // percentage
