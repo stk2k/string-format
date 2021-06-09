@@ -1,0 +1,32 @@
+{
+  "name": "stk2k/string-format",
+  "description": "String formatter(C# String.Format/sprintf)",
+  "keywords": ["PHP","C#","String","Formatter","Format"],
+  "homepage": "https://github.com/stk2k/string-format",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Katsuki Shuto",
+      "email": "stk2k@sazysoft.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.5.15",
+    "php-coveralls/php-coveralls": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "stk2k\\string\\format\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "stk2k\\string\\format\\test\\": "test/",
+      "stk2k\\string\\format\\test\\classes\\": "test/classes/"
+    }
+  }
+}
