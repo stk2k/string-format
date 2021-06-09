@@ -43,10 +43,18 @@ final class CSharpStringFormatterTest extends TestCase
         // hexadecimal number
         $this->assertEquals('A', MyStringClass::format('{0:X}', 10));
         $this->assertEquals('00A', MyStringClass::format('{0:X3}', 10));
-        $this->assertEquals('FFFFFFF6', MyStringClass::format('{0:X}', -10));
-        $this->assertEquals('fffffff6', MyStringClass::format('{0:x}', -10));
         $this->assertEquals('00ff', MyStringClass::format('{0:x4}', 255));
-        $this->assertEquals('ffffffff', MyStringClass::format('{0:x4}', (int)-1));
+
+        if (PHP_INT_SIZE === 4){
+            $this->assertEquals('FFFFFFF6', MyStringClass::format('{0:X}', -10));
+            $this->assertEquals('fffffff6', MyStringClass::format('{0:x}', -10));
+            $this->assertEquals('ffffffff', MyStringClass::format('{0:x4}', (int)-1));
+        }
+        else if (PHP_INT_SIZE === 8){
+            $this->assertEquals('FFFFFFFFFFFFFFF6', MyStringClass::format('{0:X}', -10));
+            $this->assertEquals('fffffffffffffff6', MyStringClass::format('{0:x}', -10));
+            $this->assertEquals('ffffffffffffffff', MyStringClass::format('{0:x4}', (int)-1));
+        }
 
         // many
         $this->assertEquals(

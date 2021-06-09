@@ -1,7 +1,7 @@
 {
   "name": "stk2k/string-format",
   "description": "String formatter(C# String.Format/sprintf)",
-  "keywords": ["PHP","C#","String","Formatter","Format"],
+  "keywords": ["PHP","C sharp","String","Formatter","Format"],
   "homepage": "https://github.com/stk2k/string-format",
   "type": "library",
   "license": "MIT",
