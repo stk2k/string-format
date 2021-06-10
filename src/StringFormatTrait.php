@@ -35,4 +35,20 @@ trait StringFormatTrait
 
         return $formatter->formatString($format, $values);
     }
+
+    /**
+     * Format a string with values
+     *
+     * @param string $format
+     * @param array $values
+     *
+     * @return string
+     */
+    public static function formatArray(string $format, array $values) : string
+    {
+        // by default, it uses c sharp formatter
+        $formatter = self::$string_formatter ?? new CSharpStringFormatter();
+
+        return $formatter->formatString($format, $values);
+    }
 }
