@@ -29,8 +29,19 @@ use stk2k\string\format\formatter\PhpSprintfStringFormatter;
 
 MyStringClass::setStringFormatter(new PhpSprintfStringFormatter());
          
+// string
 echo MyStringClass::format('Hello, %s!', 'David');       // Hello, David!
+
+// integer
+echo MyStringClass::format('Come here after %d days', 3);       // Come here after 3 days
 echo MyStringClass::format('%04d-%02d-%02d', 2021, 6, 10);      // 2021-06-10
+
+// float
+echo MyStringClass::format('%.03f', 3.1414926535);      // 3.141
+
+// exponent
+echo MyStringClass::format('%.3e', 362525200);      // 3.625e+8
+echo MyStringClass::format('%.3E', 362525200);      // 3.625E+8
 
 ```
 
@@ -40,8 +51,33 @@ echo MyStringClass::format('%04d-%02d-%02d', 2021, 6, 10);      // 2021-06-10
 use stk2k\string\format\test\classes\MyStringClass;
 use stk2k\string\format\formatter\PhpSprintfStringFormatter;
   
+// string
 echo MyStringClass::format('Hello, {0}!', 'David');       // Hello, David!
+
+// integer
+echo MyStringClass::format('Come here after {0:d} days', 3);       // Come here after 3 days
 echo MyStringClass::format('{0:d4}-{1:d2}-{2:d2}', 2021, 6, 10);      // 2021-06-10
+
+// float
+echo MyStringClass::format('{0:F3}', 3.1414926535);      // 3.141
+
+// exponent
+echo MyStringClass::format('{0:e3}', 362525200);      // 3.625e+8
+echo MyStringClass::format('{0:E3}', 362525200);      // 3.625E+8
+
+// number
+echo MyStringClass::format('{0:n}', 123456.789);      // 123,456.79
+echo MyStringClass::format('{0:n3}', 123456.789);     // 123,456.789
+echo MyStringClass::format('{0:n4}', 123456.789);     // 123,456.7890
+
+// percentage
+echo MyStringClass::format('Ratio: {0:P}', 0.18);      // Ratio: 18.00%
+echo MyStringClass::format('Ratio: {0:P3}', 0.18);     // Ratio: 18.000%
+echo MyStringClass::format('Ratio: {0:P4}', 0.18);     // Ratio: 18.0000%
+
+// hexadecimal number
+echo MyStringClass::format('{0:X}', 10);        // A
+echo MyStringClass::format('{0:X3}', 10);       // 00A
 
 ```
 
