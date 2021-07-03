@@ -4,7 +4,7 @@ String formatter(C# String.Format/sprintf)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/stk2k/string-format.svg?style=flat-square)](https://packagist.org/packages/stk2k/string-format)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://api.travis-ci.com/stk2k/string-format.svg?branch=main)](https://api.travis-ci.com/stk2k/string-format.svg?branch=main)
-[![Coverage Status](https://coveralls.io/repos/github/stk2k/string-format/badge.svg?branch=master)](https://coveralls.io/github/stk2k/string-format?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/stk2k/string-format/badge.svg?branch=main)](https://coveralls.io/repos/github/stk2k/string-format/badge.svg?branch=main)
 [![Code Climate](https://codeclimate.com/github/stk2k/string-format/badges/gpa.svg)](https://codeclimate.com/github/stk2k/string-format)
 [![Total Downloads](https://img.shields.io/packagist/dt/stk2k/string-format.svg?style=flat-square)](https://packagist.org/packages/stk2k/string-format)
 
